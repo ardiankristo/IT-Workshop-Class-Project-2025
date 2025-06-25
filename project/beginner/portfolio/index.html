@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My First Portfolio</title>
+    <!-- add favicon from favicon.ico -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <!-- TODO: Change your website's title here! -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!-- Link to Font Awesome for icons (don't remove unless you replace icons) -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* --- GLOBAL STYLES & FONT IMPORT --- */
+      /* Import Google Font 'Inter' for clean modern text */
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #0d0d1a; /* Dark background color for the entire page */
+        color: #e0e0e0; /* Light gray text color for better readability on dark backgrounds */
+        line-height: 1.6; /* Spacing between lines of text */
+        overflow-x: hidden; /* Prevents horizontal scrollbars, useful for animations */
+      }
+
+      .container {
+        max-width: 1200px; /* Limits the maximum width of content for better readability */
+        margin: 0 auto; /* Centers the container horizontally */
+        padding: 20px; /* Adds padding around the content inside the container */
+      }
+
+      /* --- ANIMATION STYLES --- */
+      /* These styles control how sections appear when scrolled into view.
+         They start invisible (opacity 0) and slightly moved (translateY/X),
+         then smoothly transition to visible (opacity 1) and normal position. */
+
+      .animated-section {
+        opacity: 0;
+        transform: translateY(50px); /* Starts 50px below its final position */
+        transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition over 1 second */
+      }
+
+      .animated-section.slide-in {
+        opacity: 1;
+        transform: translateY(0); /* Moves to its final position */
+      }
+
+      /* Similar animations for elements sliding from left or right */
+      .animated-left {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      .animated-left.slide-in {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .animated-right {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      .animated-right.slide-in {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      /* Simple fade-in animation */
+      .animated-fade {
+        opacity: 0;
+        transition: opacity 1s ease-out;
+      }
+
+      .animated-fade.slide-in {
+        opacity: 1;
+      }
+
+      /* --- INTERACTIVE EFFECTS --- */
+      /* Profile picture hover effect */
+      .profile-pic-wrapper {
+        transition: transform 0.3s ease-out; /* Smooth transition for zoom effect */
+        cursor: pointer; /* Changes cursor to a pointer on hover */
+      }
+
+      .profile-pic-wrapper:hover {
+        transform: scale(1.05); /* Enlarges the image by 5% on hover */
+      }
+
+      /* Card hover effect (used for skills and achievements) */
+      .card-hover-effect {
+        transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; /* Smooth transition for lift and shadow */
+      }
+
+      .card-hover-effect:hover {
+        transform: translateY(-5px); /* Lifts the card up by 5px on hover */
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Adds a larger shadow on hover */
+      }
+
+      /* Specific styling for achievement card images to ensure consistent sizing */
+      .achievement-card img {
+        width: 100%; /* Image fills the width of its container */
+        height: 180px; /* Fixed height for all achievement images */
+        object-fit: cover; /* Ensures image covers the area, cropping if necessary */
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gradient-to-br from-gray-900 via-gray-950 to-black min-h-screen"
+  >
+    <!--
+        WELCOME TO YOUR PORTFOLIO TEMPLATE!
+
+        This file contains the HTML structure for your website.
+        Look for the "TODO" comments to find places where you can customize it.
+
+        HTML is like the skeleton of your website.
+        CSS (in the <style> tags) is like the skin and clothes.
+        JavaScript (in the <script> tags) is like the brain and muscles for interaction.
+
+        Have fun making it your own!
+    -->
+
+    <!-- HERO SECTION: This is the very first section people see. -->
+    <header
+      class="h-screen flex flex-col justify-center items-center text-center p-8 animated-fade"
+      id="hero-section"
+    >
+      <!-- TODO: Customize your main title (e.g., Your Name's Portfolio, Creative Space) -->
+      <h1
+        class="text-5xl md:text-7xl font-extrabold text-white mb-4 leading-tight drop-shadow-lg"
+      >
+        [Your Name]'s Portfolio
+      </h1>
+      <!-- TODO: Write a short, catchy tagline about yourself or your work -->
+      <p
+        class="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl animated-fade"
+        style="transition-delay: 0.3s"
+      >
+        Turning ideas into digital reality with passion and precision.
+      </p>
+      <!-- Button to scroll down to the "About Me" section -->
+      <!-- The onclick event is used for a smoother, centered scroll effect -->
+      <a
+        onclick="scrollToSection('about')"
+        class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer"
+      >
+        Explore My Work <i class="fas fa-arrow-down ml-2"></i>
+      </a>
+    </header>
+
+    <!-- ABOUT ME SECTION: Tell visitors about yourself. -->
+    <section id="about" class="py-20 bg-gray-800 text-center animated-section">
+      <div class="container flex flex-col items-center">
+        <!-- Your Profile Picture -->
+        <!-- TODO: Replace the 'src' URL with a link to your own profile picture.
+                       You can use image hosting sites or local images if you set up your project locally. -->
+        <div
+          class="w-48 h-48 rounded-full overflow-hidden mb-8 shadow-xl border-4 border-white profile-pic-wrapper"
+        >
+          <img
+            src="https://placehold.co/192x192/1f1f1f/e0e0e0?text=Your+Photo"
+            alt="Your Profile Picture"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <!-- TODO: Write your main "About Me" heading -->
+        <h2
+          class="text-4xl font-bold text-white mb-6 animated-left"
+          style="transition-delay: 0.2s"
+        >
+          About Me
+        </h2>
+        <!-- TODO: Write a paragraph (or two) about yourself.
+                       Talk about your interests, what you're passionate about,
+                       or what kind of work you enjoy doing. -->
+        <p
+          class="text-lg text-gray-300 max-w-3xl mb-8 animated-right"
+          style="transition-delay: 0.4s"
+        >
+          Hi there! I'm [Your Name], an aspiring digital creator with a growing
+          passion for technology. I love exploring how websites are built,
+          playing around with new design ideas, and figuring out how code can
+          bring cool concepts to life. I'm excited to learn more about web
+          development and contribute to exciting projects.
+        </p>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION: Showcase what you're good at or what you're learning. -->
+    <section id="skills" class="py-20 bg-gray-900 animated-section">
+      <div class="container">
+        <!-- TODO: Customize your Skills heading -->
+        <h2
+          class="text-4xl font-bold text-white text-center mb-12 animated-section"
+          style="transition-delay: 0.1s"
+        >
+          My Skills
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <!-- SKILL CARD EXAMPLE -->
+          <!-- You can copy, paste, and modify these 'div' blocks to add more skills.
+                     Find more icons at: https://fontawesome.com/v5/search?m=free -->
+          <div
+            class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 text-center card-hover-effect animated-section"
+            style="transition-delay: 0.2s"
+          >
+            <i class="fas fa-code text-4xl text-white mb-3"></i>
+            <!-- Icon -->
+            <h3 class="text-xl font-semibold text-white mb-1">
+              Web Development
+            </h3>
+            <!-- Skill Title -->
+            <p class="text-gray-300 text-sm">HTML, CSS, JavaScript Basics</p>
+            <!-- Skill Description -->
+          </div>
+
+          <div
+            class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 text-center card-hover-effect animated-section"
+            style="transition-delay: 0.3s"
+          >
+            <i class="fas fa-lightbulb text-4xl text-white mb-3"></i>
+            <h3 class="text-xl font-semibold text-white mb-1">
+              Problem Solving
+            </h3>
+            <p class="text-gray-300 text-sm">Finding creative solutions</p>
+          </div>
+
+          <div
+            class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 text-center card-hover-effect animated-section"
+            style="transition-delay: 0.4s"
+          >
+            <i class="fas fa-pencil-alt text-4xl text-white mb-3"></i>
+            <h3 class="text-xl font-semibold text-white mb-1">
+              Digital Design
+            </h3>
+            <p class="text-gray-300 text-sm">Basic image editing, layouts</p>
+          </div>
+
+          <div
+            class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 text-center card-hover-effect animated-section"
+            style="transition-delay: 0.5s"
+          >
+            <i class="fas fa-gamepad text-4xl text-white mb-3"></i>
+            <h3 class="text-xl font-semibold text-white mb-1">Gaming Logic</h3>
+            <p class="text-gray-300 text-sm">Understanding game mechanics</p>
+          </div>
+
+          <div
+            class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 text-center card-hover-effect animated-section"
+            style="transition-delay: 0.6s"
+          >
+            <i class="fas fa-users text-4xl text-white mb-3"></i>
+            <h3 class="text-xl font-semibold text-white mb-1">Teamwork</h3>
+            <p class="text-gray-300 text-sm">Collaborating on projects</p>
+          </div>
+
+          <div
+            class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 text-center card-hover-effect animated-section"
+            style="transition-delay: 0.7s"
+          >
+            <i class="fas fa-search text-4xl text-white mb-3"></i>
+            <h3 class="text-xl font-semibold text-white mb-1">Research</h3>
+            <p class="text-gray-300 text-sm">Finding information online</p>
+          </div>
+
+          <div
+            class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 text-center card-hover-effect animated-section"
+            style="transition-delay: 0.8s"
+          >
+            <i class="fas fa-wrench text-4xl text-white mb-3"></i>
+            <h3 class="text-xl font-semibold text-white mb-1">
+              Troubleshooting
+            </h3>
+            <p class="text-gray-300 text-sm">Fixing small tech issues</p>
+          </div>
+
+          <div
+            class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 text-center card-hover-effect animated-section"
+            style="transition-delay: 0.9s"
+          >
+            <i class="fas fa-terminal text-4xl text-white mb-3"></i>
+            <h3 class="text-xl font-semibold text-white mb-1">Basic Logic</h3>
+            <p class="text-gray-300 text-sm">Step-by-step thinking</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS SECTION: Show off cool things you've done, even small ones! -->
+    <section id="achievements" class="py-20 bg-gray-800 animated-section">
+      <div class="container">
+        <!-- TODO: Customize your Achievements heading -->
+        <h2
+          class="text-4xl font-bold text-white text-center mb-12 animated-section"
+          style="transition-delay: 0.1s"
+        >
+          My Achievements
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <!-- ACHIEVEMENT CARD EXAMPLE -->
+          <!-- You can copy, paste, and modify these 'div' blocks to add more achievements.
+                     TODO: Replace 'src' URL with a link to an image for your achievement (e.g., a screenshot, a certificate, a relevant photo). -->
+          <div
+            class="achievement-card bg-gray-900 p-6 rounded-xl shadow-xl border border-gray-700 card-hover-effect animated-section"
+            style="transition-delay: 0.2s"
+          >
+            <img
+              src="https://placehold.co/600x350/1f1f1f/e0e0e0?text=My+First+Website"
+              alt="My First Website"
+              class="rounded-lg mb-6 shadow-md"
+            />
+            <!-- TODO: Give your achievement a title -->
+            <h3 class="text-2xl font-semibold text-white mb-3">
+              Created My First Website
+            </h3>
+            <!-- TODO: Describe your achievement -->
+            <p class="text-gray-300 mb-4">
+              Successfully built a simple website from scratch using HTML and
+              CSS, showcasing basic web design skills.
+            </p>
+          </div>
+
+          <div
+            class="achievement-card bg-gray-900 p-6 rounded-xl shadow-xl border border-gray-700 card-hover-effect animated-section"
+            style="transition-delay: 0.4s"
+          >
+            <img
+              src="https://placehold.co/600x350/2f2f2f/e0e0e0?text=Coding+Game+Solved"
+              alt="Coding Game Solved"
+              class="rounded-lg mb-6 shadow-md"
+            />
+            <h3 class="text-2xl font-semibold text-white mb-3">
+              Solved Coding Puzzles
+            </h3>
+            <p class="text-gray-300 mb-4">
+              Completed several challenging levels on online coding games like
+              Flexbox Froggy or CodeCombat, practicing logical thinking.
+            </p>
+          </div>
+
+          <div
+            class="achievement-card bg-gray-900 p-6 rounded-xl shadow-xl border border-gray-700 card-hover-effect animated-section"
+            style="transition-delay: 0.6s"
+          >
+            <img
+              src="https://placehold.co/600x350/4f4f4f/e0e0e0?text=Team+Project"
+              alt="Team Project"
+              class="rounded-lg mb-6 shadow-md"
+            />
+            <h3 class="text-2xl font-semibold text-white mb-3">
+              Contributed to a Team Project
+            </h3>
+            <p class="text-gray-300 mb-4">
+              Worked effectively in a group to complete a school project,
+              learning to collaborate and share ideas.
+            </p>
+          </div>
+
+          <div
+            class="achievement-card bg-gray-900 p-6 rounded-xl shadow-xl border border-gray-700 card-hover-effect animated-section"
+            style="transition-delay: 0.8s"
+          >
+            <img
+              src="https://placehold.co/600x350/1f1f1f/e0e0e0?text=Digital+Art"
+              alt="Digital Art"
+              class="rounded-lg mb-6 shadow-md"
+            />
+            <h3 class="text-2xl font-semibold text-white mb-3">
+              Created Digital Art/Design
+            </h3>
+            <p class="text-gray-300 mb-4">
+              Designed a logo, poster, or digital artwork using software like
+              GIMP or online tools, expressing creativity.
+            </p>
+          </div>
+
+          <div
+            class="achievement-card bg-gray-900 p-6 rounded-xl shadow-xl border border-gray-700 card-hover-effect animated-section"
+            style="transition-delay: 1s"
+          >
+            <img
+              src="https://placehold.co/600x350/2f2f2f/e0e0e0?text=Problem+Solved"
+              alt="Problem Solved"
+              class="rounded-lg mb-6 shadow-md"
+            />
+            <h3 class="text-2xl font-semibold text-white mb-3">
+              Troubleshot a Tech Problem
+            </h3>
+            <p class="text-gray-300 mb-4">
+              Successfully identified and fixed a computer or software issue for
+              myself or someone else.
+            </p>
+          </div>
+
+          <div
+            class="achievement-card bg-gray-900 p-6 rounded-xl shadow-xl border border-gray-700 card-hover-effect animated-section"
+            style="transition-delay: 1.2s"
+          >
+            <img
+              src="https://placehold.co/600x350/4f4f4f/e0e0e0?text=Online+Course"
+              alt="Online Course"
+              class="rounded-lg mb-6 shadow-md"
+            />
+            <h3 class="text-2xl font-semibold text-white mb-3">
+              Completed an Online Learning Module
+            </h3>
+            <p class="text-gray-300 mb-4">
+              Finished an online course or tutorial on a tech topic, expanding
+              my knowledge.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION: How people can reach you. -->
+    <section
+      id="contact"
+      class="py-20 bg-gray-900 text-center animated-section"
+    >
+      <div class="container">
+        <!-- TODO: Customize your Contact heading -->
+        <h2
+          class="text-4xl font-bold text-white mb-8 animated-section"
+          style="transition-delay: 0.1s"
+        >
+          Let's Connect!
+        </h2>
+        <!-- TODO: Add a short message about connecting -->
+        <p
+          class="text-lg text-gray-300 max-w-2xl mx-auto mb-10 animated-section"
+          style="transition-delay: 0.3s"
+        >
+          I'm excited about technology and always looking to learn more and
+          connect with others. Feel free to reach out!
+        </p>
+        <!-- Email Button -->
+        <!-- TODO: Replace 'mailto:contact@yourdomain.com' with your actual email address. -->
+        <a
+          href="mailto:your.email@example.com"
+          class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out"
+        >
+          Email Me <i class="fas fa-envelope ml-2"></i>
+        </a>
+        <!-- Social Media Links -->
+        <!-- TODO: Replace '#' with links to your actual LinkedIn, GitHub, Twitter (or other) profiles.
+                       You can remove any icons you don't use. -->
+        <div
+          class="flex justify-center space-x-6 mt-10 animated-section"
+          style="transition-delay: 0.5s"
+        >
+          <a
+            href="#"
+            class="text-white hover:text-gray-400 text-3xl transition-colors duration-200"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a
+            href="#"
+            class="text-white hover:text-gray-400 text-3xl transition-colors duration-200"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="#"
+            class="text-white hover:text-gray-400 text-3xl transition-colors duration-200"
+            ><i class="fab fa-twitter"></i
+          ></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER: Simple copyright notice. -->
+    <footer class="py-8 text-center text-gray-500 text-sm">
+      <!-- TODO: Customize the copyright text -->
+      <p>&copy; 2025 [Your Name/Company]. All rights reserved.</p>
+    </footer>
+
+    <!--
+        JAVASCRIPT FOR INTERACTIVITY
+        (No need to modify these parts unless you're feeling advanced!)
+    -->
+    <script>
+      // Function to smoothly scroll to a section and try to center it in the viewport
+      function scrollToSection(id) {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({
+            behavior: "smooth", // Makes the scroll animated
+            block: "center", // Tries to center the element in the viewport
+          });
+        }
+      }
+
+      // Intersection Observer: This JavaScript magic makes sections 'slide in' as you scroll.
+      // It watches elements and adds a 'slide-in' class when they become visible.
+      const animatedElements = document.querySelectorAll(
+        ".animated-section, .animated-left, .animated-right, .animated-fade"
+      );
+
+      const observerOptions = {
+        root: null /* viewport is the root */,
+        rootMargin: "0px" /* No extra margin around the root */,
+        threshold: 0.1 /* Trigger when 10% of the element is visible */,
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // If the element is in view, add the 'slide-in' class to trigger its animation
+            entry.target.classList.add("slide-in");
+            observer.unobserve(entry.target); // Stop observing once it has animated
+          }
+        });
+      }, observerOptions);
+
+      // Start observing all elements that have the animation classes
+      animatedElements.forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
