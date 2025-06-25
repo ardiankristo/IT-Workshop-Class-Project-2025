@@ -1,4 +1,4 @@
-![My Personalized Digital Greeting Card - Make it Special!](https://placehold.co/1200x600/FCE4EC/D81B60?text=Kartu+Ucapan+Digital+Pribadi+%E2%80%A2+Jadikan+Istimewa!)
+![My Personalized Digital Greeting Card - Make it Special!](./thumbnail.png!)
 
 # My Personalized Digital Greeting Card
 
