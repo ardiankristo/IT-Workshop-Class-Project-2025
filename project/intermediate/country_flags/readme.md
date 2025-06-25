@@ -1,6 +1,10 @@
-![Global Flag Explorer - Your API Adventure!](https://placehold.co/1200x600/2d3748/e2e8f0?text=Global+Flag+Explorer+%E2%80%A2+Your+API+Adventure)
-
 # Global Flag Explorer
+
+Before:
+![Before!](thumbnail_before.png)
+
+After:
+![After!](thumbnail_after.png)
 
 Welcome to the **Global Flag Explorer**! This project is designed as an intermediate-level challenge to help you practice consuming external APIs, handling asynchronous JavaScript, and customizing CSS layouts.
 
