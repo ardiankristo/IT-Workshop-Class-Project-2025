@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Special Greeting Just For You!</title>
+    <!-- TODO: Change your card's title! -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@400;600;700&display=swap");
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(
+          to bottom right,
+          #fce4ec,
+          #e0f2f7
+        ); /* Soft pink to light blue gradient */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+        box-sizing: border-box;
+        color: #333;
+      }
+
+      .card-container {
+        background-color: #ffffff; /* White card background */
+        border-radius: 25px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        padding: 30px 40px;
+        width: 100%;
+        max-width: 600px;
+        text-align: center;
+        transition: all 0.3s ease-in-out;
+        border: 2px solid #ff80ab; /* Accent pink border */
+        position: relative; /* For the confetti effect */
+        overflow: hidden; /* To contain confetti */
+      }
+
+      .header-message {
+        font-family: "Pacifico", cursive; /* Scripty font for main message */
+        font-size: 2.5rem;
+        color: #d81b60; /* Deep pink */
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .recipient-name {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #3f51b5; /* Indigo blue */
+        margin-bottom: 15px;
+      }
+
+      .card-image {
+        width: 80%;
+        max-width: 300px;
+        height: auto;
+        border-radius: 15px;
+        margin: 25px auto;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease;
+      }
+
+      .card-image:hover {
+        transform: scale(1.03);
+      }
+
+      .main-message {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #4a4a4a;
+        margin-bottom: 30px;
+      }
+
+      .hidden-message {
+        background-color: #ffe0b2; /* Light orange for hidden message background */
+        border-left: 5px solid #ff9800; /* Orange accent */
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 25px;
+        font-style: italic;
+        color: #6a1b9a; /* Dark purple for hidden message text */
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: opacity 0.5s ease-out, max-height 0.5s ease-out,
+          padding 0.5s ease-out;
+      }
+
+      .hidden-message.visible {
+        opacity: 1;
+        max-height: 200px; /* Adjust as needed to fit content */
+        padding: 15px;
+      }
+
+      .action-button {
+        background-color: #4caf50; /* Green button */
+        color: white;
+        padding: 12px 25px;
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease,
+          box-shadow 0.2s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 20px;
+      }
+
+      .action-button:hover {
+        background-color: #43a047; /* Darker green on hover */
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .action-button:active {
+        transform: translateY(0);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .sender-info {
+        font-size: 0.9rem;
+        color: #757575;
+        margin-top: 30px;
+      }
+
+      /* Confetti effect styles (optional, for advanced users) */
+      .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: #f0f; /* Example color */
+        animation: confetti-fall 3s linear forwards;
+        opacity: 0;
+      }
+
+      @keyframes confetti-fall {
+        0% {
+          transform: translateY(-100px) rotateZ(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(600px) rotateZ(720deg);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gradient-to-br from-pink-100 via-blue-100 to-green-100 min-h-screen"
+  >
+    <!--
+        WELCOME TO YOUR PERSONALIZED DIGITAL GREETING CARD TEMPLATE!
+
+        This is a fun project for beginners to practice HTML, CSS, and basic JavaScript.
+        Your goal is to make this card special for someone!
+        Look for the "TODO" comments to find places where you can customize it.
+
+        HTML is the structure.
+        CSS (in the <style> tags) makes it pretty.
+        JavaScript (in the <script> tags) adds interactivity.
+
+        Let's get creative!
+    -->
+
+    <div class="card-container">
+      <!-- Main Header Message -->
+      <!-- TODO: Change this message for your occasion (e.g., "Happy Birthday!", "Thank You!", "You're Invited!") -->
+      <h1 class="header-message">Sending You Warm Wishes!</h1>
+
+      <!-- Recipient's Name -->
+      <!-- TODO: Change "Friend" to the name of the person you're sending the card to! -->
+      <p class="recipient-name">Dear Friend,</p>
+
+      <!-- Main Image -->
+      <!-- TODO: Replace the 'src' URL with a link to an image that fits your card's theme.
+                   This could be a photo, a drawing, or a picture related to the occasion.
+                   You can use image hosting sites or local images. -->
+      <img
+        src="https://placehold.co/400x250/FCE4EC/D81B60?text=Your+Special+Image"
+        alt="Greeting Card Image"
+        class="card-image"
+      />
+
+      <!-- Main Card Message -->
+      <!-- TODO: Write your main message here! Keep it friendly and heartfelt. -->
+      <p class="main-message">
+        Just wanted to send a little something your way to brighten your day!
+        Hope you're doing wonderfully. Thinking of you!
+      </p>
+
+      <!-- Hidden Message (revealed by button) -->
+      <!-- TODO: Write a secret or extra message here! This message will only show when the button is clicked. -->
+      <div id="hiddenMessage" class="hidden-message">
+        P.S. Here's a little extra message just for your eyes! Hope it makes you
+        smile even more. 🎉
+      </div>
+
+      <!-- Action Button -->
+      <!-- TODO: Customize the button's text (e.g., "Open Message", "Click Me!", "RSVP Here").
+                   The JavaScript will make it work. -->
+      <button id="revealButton" class="action-button">
+        <i class="fas fa-gift"></i> Reveal Special Message
+      </button>
+
+      <!-- Sender Information -->
+      <!-- TODO: Put your name here! -->
+      <p class="sender-info">From: [Your Name]</p>
+    </div>
+
+    <!--
+        JAVASCRIPT FOR INTERACTIVITY
+        (No need to modify these parts unless you're feeling advanced!)
+    -->
+    <script>
+      const revealButton = document.getElementById("revealButton");
+      const hiddenMessage = document.getElementById("hiddenMessage");
+
+      // Function to reveal the hidden message
+      revealButton.addEventListener("click", () => {
+        hiddenMessage.classList.toggle("visible"); // Toggles the 'visible' class
+        if (hiddenMessage.classList.contains("visible")) {
+          revealButton.textContent = "Hide Message"; // Change button text
+          // Optional: Trigger a simple confetti effect when message is revealed
+          // This is a basic example; for a real confetti library, it would be different.
+          for (let i = 0; i < 50; i++) {
+            const confetti = document.createElement("div");
+            confetti.classList.add("confetti");
+            confetti.style.left = Math.random() * 100 + "%";
+            confetti.style.backgroundColor = `hsl(${
+              Math.random() * 360
+            }, 100%, 50%)`;
+            confetti.style.animationDelay = `${Math.random() * 0.5}s`;
+            document.body.appendChild(confetti);
+            confetti.addEventListener("animationend", () => confetti.remove());
+          }
+        } else {
+          revealButton.textContent = "Reveal Special Message"; // Change button text back
+        }
+      });
+
+      // Optional: Add a simple music player for a short tune
+      // TODO: Replace 'path/to/your/tune.mp3' with a link to a short, fun MP3 file.
+      // You might need to add a button for this in your HTML if you want it!
+      // const audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'); // Example tune
+
+      // function playTune() {
+      //     audio.play().catch(e => console.error("Error playing audio:", e));
+      // }
+
+      // Example button to add to HTML if you want music:
+      // <button onclick="playTune()" class="action-button" style="background-color: #673ab7; margin-top: 10px;">
+      //    <i class="fas fa-music"></i> Play a Tune!
+      // </button>
+    </script>
+  </body>
+</html>
