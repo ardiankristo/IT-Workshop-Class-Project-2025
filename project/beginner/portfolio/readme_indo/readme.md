@@ -1,3 +1,5 @@
+![My First Portfolio Website](../thumbnail.png)
+
 # Situs Web Portofolio Pertamaku
 
 Selamat datang di template situs web portofolio pribadi Anda\! Proyek ini membantu Anda membuat situs web kustom menggunakan HTML, CSS (Tailwind CSS), dan JavaScript. Pamerkan keterampilan, pencapaian, dan kepribadian Anda dengan fitur-fitur seperti animasi gulir yang mulus, efek hover interaktif, dan desain responsif.

@@ -1,4 +1,4 @@
-![My Digital Profile Card - Showcase Yourself Online!](https://placehold.co/1200x600/F0F2F5/4A90E2?text=My+Digital+Profile+Card+%E2%80%A2+Pamerkan+Diri+Anda!)
+![My Digital Profile Card - Showcase Yourself Online!](./thumbnail.png)
 
 # My Digital Profile Card
 

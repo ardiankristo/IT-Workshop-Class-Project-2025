@@ -1,3 +1,5 @@
+![My First Portfolio Website](./thumbnail.png)
+
 # My First Portfolio Website
 
 Welcome to your personal portfolio website template\! This project helps you build a custom website using HTML, CSS (Tailwind CSS), and JavaScript. Showcase your skills, achievements, and personality with features like smooth scroll animations, interactive hover effects, and a responsive design.

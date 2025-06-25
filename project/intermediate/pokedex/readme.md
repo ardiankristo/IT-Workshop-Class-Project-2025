@@ -1,5 +1,11 @@
 # API Explorer: Pokémon Edition
 
+Before:
+![Before!](thumbnail_before.png)
+
+After:
+![After!](thumbnail_after.png)
+
 Welcome to the **API Explorer: Pokémon Edition**\! This project is designed as an intermediate-level challenge to help you practice consuming external APIs, handling asynchronous JavaScript, and customizing CSS layouts.
 
 Your goal is to complete this Pokedex-style website, which currently has a basic structure but needs your coding skills to fetch and display Pokémon data from the PokeAPI.
