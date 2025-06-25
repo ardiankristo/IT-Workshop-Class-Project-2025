@@ -17,29 +17,29 @@ Mari jadikan ini milik Anda secara unik\!
   * **1. Judul Situs Web:** Ubah `<title>` di bagian `<head>` (misalnya, `Portofolio Keren [Nama Anda]`).
   * **2. Judul Utama:** Perbarui `<h1>` di bagian Hero (misalnya, `Portofolio [Nama Anda]`).
   * **3. Slogan:** Personalisasi slogan `<p>` di bawah judul utama.
-  * **4. Bagian Tentang Saya:**
+  * **4. Bagian "About Me":**
       * Ubah judul `About Me` jika diinginkan.
       * Tulis ulang paragraf untuk menjelaskan diri Anda, minat Anda, dan apa yang Anda sukai.
-  * **5. Bagian Keterampilan Saya:**
+  * **5. Bagian "My Skills":**
       * Perbarui judul `My Skills`.
       * **Edit Keterampilan yang Ada:** Ubah `<h3>` untuk judul keterampilan dan `<p>` untuk deskripsi.
       * **Ganti Ikon:** Gunakan ikon dari [Font Awesome Free Icons](https://fontawesome.com/v5/search?m=free) dengan memperbarui kelas `<i>` (misalnya, `fas fa-camera`).
       * **Tambahkan Keterampilan Lain:** Salin, tempel, dan kustomisasi blok `div` keterampilan.
-  * **6. Bagian Pencapaian Saya:**
+  * **6. Bagian "My Achievements":**
       * Perbarui judul `My Achievements`.
       * **Edit Pencapaian yang Ada:**
           * **Tambahkan Gambar:** Ganti URL `src` dari tag `<img>` dengan gambar Anda sendiri (tangkapan layar, foto proyek, sertifikat, seni digital). Gunakan `https://placehold.co/600x350/YOUR_COLOR/YOUR_TEXT_COLOR?text=Your+Text` sebagai placeholder.
           * Ubah `<h3>` untuk judul pencapaian dan `<p>` untuk deskripsi.
       * **Tambahkan Pencapaian Lain:** Salin, tempel, dan kustomisasi blok `div` pencapaian.
-  * **7. Bagian Mari Berhubungan\!:**
+  * **7. Bagian "Let's Connect"\!:**
       * Ubah judul `Let's Connect!` dan paragraf deskriptif.
       * **Tautan Email:** Perbarui `href="mailto:your.email@example.com"` ke alamat email Anda yang sebenarnya.
       * **Tautan Media Sosial:** Ganti `href="#"` dengan URL profil LinkedIn, GitHub, Twitter (atau lainnya) Anda. Hapus ikon yang tidak digunakan.
   * **8. Footer:** Kustomisasi teks hak cipta di bagian `<footer>`.
 
-### Tingkat Menengah Bonus (Tantang Diri Anda\!)
+### Level Bonus (Kalau anda merasa greget\!)
 
-  * **1. Tambahkan Tombol untuk Menggulir ke Bagian Tertentu:**
+  * **1. Tambahkan Tombol untuk Berpindah ke Bagian Tertentu:**
       * Di bagian `<header>`, di bawah tombol "Explore My Work", tambahkan tag `<a>` lainnya.
       * **Contoh Kode:**
         ```html
