@@ -1,4 +1,4 @@
-![My Personalized Digital Greeting Card - Make it Special!](./thumbnail.png!)
+![My Personalized Digital Greeting Card - Make it Special!](./thumbnail.png)
 
 # My Personalized Digital Greeting Card
 
